@@ -1,0 +1,34 @@
+////////////////////////////////////////////////////////////
+// PWM Motor Controller
+////////////////////////////////////////////////////////////
+#ifndef PWMMotor_h
+#define PWMMotor_h
+
+////////////////////////////////////////////////////////////
+// Manage motor PWM
+////////////////////////////////////////////////////////////
+
+class CPWMMotor
+{
+protected:
+
+	int m_lastCommand;
+
+	CMilliTimer m_startupTimer;
+	void writePWM(int _speed);
+
+public:
+	CPWMMotor();
+	virtual ~CPWMMotor();
+
+	void setup();
+
+	void setSpeed(int _speed);
+	int getSpeed()
+	{
+		return m_lastCommand;
+	}
+	void processFast();
+};
+
+#endif
